@@ -2,8 +2,9 @@ package xyz.assossa.knn.components
 
 class NeuronNet(neuronsPerLayer: List<Int>, activationFunction: ActivationFunction) {
 
-    private val activationFunction = activationFunction
-    private var neuronLayers = List(neuronsPerLayer.size - 1, { i: Int -> NeuronLayer(neuronsPerLayer[i], neuronsPerLayer[i + 1]) })
+    val neuronsPerLayer = neuronsPerLayer
+    val activationFunction = activationFunction
+    var neuronLayers = List(neuronsPerLayer.size - 1, { i: Int -> NeuronLayer(neuronsPerLayer[i], neuronsPerLayer[i + 1]) })
 
     constructor(neuronsPerLayer: List<Int>, activationFunction: ActivationFunction, weights: List<List<List<Float>>>) : this(neuronsPerLayer, activationFunction) {
         this.neuronLayers = List(neuronsPerLayer.size - 1, { i: Int -> NeuronLayer(neuronsPerLayer[i], neuronsPerLayer[i + 1], weights[i]) })

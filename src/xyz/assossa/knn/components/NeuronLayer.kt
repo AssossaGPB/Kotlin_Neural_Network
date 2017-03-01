@@ -19,4 +19,8 @@ class NeuronLayer(numberOfInputs: Int, numberOfNeurons: Int) {
     fun getWeights(): List<List<Float>> {
         return List(neurons.size, { i: Int -> neurons[i].getWeights() })
     }
+
+    fun getNeurons(): List<Neuron> {
+        return neurons
+    }
 }
